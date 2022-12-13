@@ -18,7 +18,6 @@ export const Filtros = ({ orden, setCurrentPage }) => {
       filters.category !== "" &&
       filters.color !== ""
     )
-      console.log(page);
     dispatch(getByFilters(filters));
   }, [dispatch, filters]);
 
