@@ -3,7 +3,9 @@ import NavBar from "../Features/NavBar";
 import girLanding from "../../Images/bg2.png";
 import { Link } from "react-router-dom";
 import Footer from "../Features/Footer";
+
 import logo from "../../Images/logo.png";
+
 
 import { height } from "@mui/system";
 
@@ -14,6 +16,7 @@ export default function Landing() {
         <div className="col-span-5">
           <NavBar />
         </div>
+
         <div className="pl-20 justify-items-center ">
           <img src={logo} className="pt-2 mt-40 pl-20" />
           <div className=" justify-items-center ">
@@ -25,6 +28,7 @@ export default function Landing() {
                 <Link to="/home">WATCH CATALOG</Link>
               </button>
             </div>
+
           </div>
         </div>
 
