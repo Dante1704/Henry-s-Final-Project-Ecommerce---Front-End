@@ -12,8 +12,6 @@ export const Filtros = ({ /* orden, */ setCurrentPage }) => {
     color: "",
   });
 
-  console.log(filters);
-
   useEffect(() => {
     if (
       filters.gender !== "" &&
@@ -42,6 +40,10 @@ export const Filtros = ({ /* orden, */ setCurrentPage }) => {
     dispatch(sortByPrice(sortedProducts));
     //orden(`Ordenado ${e.target.value}`);
   }
+
+  console.log(filters);
+  console.log(products);
+  products;
 
   return (
     <div className="col-span-5 mt-5 mb-5">
