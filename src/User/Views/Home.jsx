@@ -66,9 +66,8 @@ export default function Home() {
               );
             })
           : null}
-      </div>
-{product.error && <ErrorSearch />}
-      <Stack spacing={1}>
+           {product.error && <ErrorSearch />}
+           <Stack spacing={1}>
         <Paginado
           productsPerPage={productsPerPage}
           productPaginado={productPaginado.length}
@@ -76,6 +75,7 @@ export default function Home() {
           paginado={paginado}
         />
       </Stack>
+      </div>
       <Footer />
     </div>
   );
