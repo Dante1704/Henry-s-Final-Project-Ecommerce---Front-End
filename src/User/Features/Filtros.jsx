@@ -12,10 +12,6 @@ export const Filtros = ({ setOrden, setCurrentPage }) => {
     color: "",
   });
 
-  console.log(filters);
-  console.log(products);
-  console.log("dispatch getByFilters");
-
   function filterHandler(e) {
     const filterName = e.target.name;
     const filterValue = e.target.value;
