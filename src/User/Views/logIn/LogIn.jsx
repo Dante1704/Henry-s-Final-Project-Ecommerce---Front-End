@@ -22,6 +22,7 @@ import { errorRemove } from "../../../Redux/Reducer/authSlice";
 import jwt_decode from "jwt-decode";
 import { redirect } from "react-router-dom";
 import { googleAuth } from "../../../Redux/actions/index";
+import logo from "../../../Images/logo.png";
 
 function Copyright(props) {
   return (
@@ -135,9 +136,10 @@ export default function LogIn() {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <img src={logo} width="250px" />
+          {/* <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
-          </Avatar>
+          </Avatar> */}
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
@@ -166,10 +168,10 @@ export default function LogIn() {
               onChange={handleChange}
               autoComplete="current-password"
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
@@ -181,13 +183,7 @@ export default function LogIn() {
             </Button>
             {/* TODO LO DE GOOGLE TEMPORAL */}
             <div id="signInDiv"></div>
-            <Button
-              type="submit"
-              id="signOut"
-              onClick={(e) => handleSingOut(e)}
-            >
-              Sing Out
-            </Button>
+
             {user && (
               <div>
                 <img src={googleUser.picture} alt={googleUser.name} />
@@ -195,20 +191,20 @@ export default function LogIn() {
               </div>
             )}
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
               <Grid item>
                 <Link href="#" variant="body2" to="/formRegister">
-                  {"Don't have an account? Sign Up"}
+                  <Button
+                    type="submit"
+                    id="signOut"
+                    onClick={(e) => handleSingOut(e)}
+                  >
+                    Don't have an account? Sign Up
+                  </Button>
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
   );
