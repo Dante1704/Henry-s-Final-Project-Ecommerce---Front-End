@@ -29,7 +29,7 @@ export const getByName = createAsyncThunk(
 );
 
 export const getByFilters = createAsyncThunk(
-  "getGender/getGender",
+  "getByFilters/getByFilters",
   async (filters) => {
     return await axios
       .post(`${url}/product/filtered`, filters)

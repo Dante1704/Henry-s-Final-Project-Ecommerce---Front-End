@@ -12,15 +12,9 @@ export const Filtros = ({ setOrden, setCurrentPage }) => {
     color: "",
   });
 
-  useEffect(() => {
-    if (
-      filters.gender !== "" &&
-      filters.category !== "" &&
-      filters.color !== ""
-    ) {
-      dispatch(getByFilters(filters));
-    }
-  }, [dispatch, filters]);
+  console.log(filters);
+  console.log(products);
+  console.log("dispatch getByFilters");
 
   function filterHandler(e) {
     const filterName = e.target.name;
@@ -42,9 +36,15 @@ export const Filtros = ({ setOrden, setCurrentPage }) => {
     setOrden(`Ordenado ${e.target.value}`);
   }
 
-  console.log(filters);
-  console.log(products);
-  products;
+  useEffect(() => {
+    /* if (
+      filters.gender !== "" &&
+      filters.category !== "" &&
+      filters.color !== ""
+    ) {
+    } */
+    dispatch(getByFilters(filters));
+  }, [dispatch, filters]);
 
   return (
     <div className="col-span-5 mt-5 mb-5">
