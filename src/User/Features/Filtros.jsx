@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sortByPrice, getByFilters } from "../../Redux/Reducer/allProductSlice";
 
-export const Filtros = ({ orden, setCurrentPage }) => {
+export const Filtros = ({ setOrden, setCurrentPage }) => {
   const dispatch = useDispatch();
   const products = [...useSelector((state) => state.allProducts.allProducts)];
   const [filters, setFilters] = useState({
@@ -17,16 +17,15 @@ export const Filtros = ({ orden, setCurrentPage }) => {
       filters.gender !== "" &&
       filters.category !== "" &&
       filters.color !== ""
-    )
-      console.log(page);
-    dispatch(getByFilters(filters));
+    ) {
+      dispatch(getByFilters(filters));
+    }
   }, [dispatch, filters]);
 
   function filterHandler(e) {
     const filterName = e.target.name;
     const filterValue = e.target.value;
     setFilters({ ...filters, [filterName]: filterValue });
-
     setCurrentPage(1);
     dispatch(getByFilters(filters));
     setOrden(`Ordenado ${e.target.value}`);
@@ -42,6 +41,10 @@ export const Filtros = ({ orden, setCurrentPage }) => {
     dispatch(sortByPrice(sortedProducts));
     setOrden(`Ordenado ${e.target.value}`);
   }
+
+  console.log(filters);
+  console.log(products);
+  products;
 
   return (
     <div className="col-span-5 mt-5 mb-5">
@@ -83,7 +86,7 @@ export const Filtros = ({ orden, setCurrentPage }) => {
             <option value="">Category</option>
             <option value="shirts">Shirt</option>
             <option value="t-shirts">T-shirt</option>
-            <option value="foot">Shoes</option>
+            <option value="shoes">Shoes</option>
             <option value="jeans">jeans</option>
             <option value="jackets">Jackets</option>
           </select>

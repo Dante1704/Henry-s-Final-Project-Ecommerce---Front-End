@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import RatingSystem from "./Rating/RatingSystem";
 import ReviewSystem from "./Rating/ReviewSystem";
+import { getAllReviews } from "../../Redux/Reducer/RatingSlice";
 
 export default function Details() {
   const details = useSelector((state) => state.details);
@@ -25,11 +26,15 @@ export default function Details() {
   const product = details.details;
   const [quantity, setQuantity] = useState(1);
   const [open, setOpen] = React.useState(false);
+  const [warning, setWarning] = React.useState(false);
   const productId = details.details.id; //lo tengo que mandar a la review para hacer la request de createReview
 
   useEffect(() => {
     dispatch(getProductDetails(id));
   }, [dispatch, id]);
+  useEffect(() => {
+    dispatch(getAllReviews());
+  }, [dispatch]);
 
   const handleClick = () => {
     dispatch(
@@ -48,6 +53,7 @@ export default function Details() {
     if (reason === "clickaway") {
       return;
     }
+    setWarning(false);
     setOpen(false);
   };
 
@@ -56,6 +62,7 @@ export default function Details() {
       quantity > 1 && setQuantity(quantity - 1);
     } else {
       quantity < details.details.stock && setQuantity(quantity + 1);
+      setWarning(true);
     }
   };
 
@@ -145,13 +152,31 @@ export default function Details() {
                     Remember to log in to complete your purchase!
                   </Alert>
                 </Snackbar>
+                <Snackbar
+                  open={warning}
+                  autoHideDuration={2000}
+                  onClose={handleClose}
+                >
+                  <Alert
+                    onClose={handleClose}
+                    severity="warning"
+                    sx={{ width: "100%" }}
+                  >
+                    <AlertTitle>
+                      There is no more stock of this product!!
+                    </AlertTitle>
+                    Come back soon!
+                  </Alert>
+                </Snackbar>
               </div>
             </div>
           </div>
-          <ReviewSystem />
+          <div className="overflow-auto h-[10rem]">
+            <ReviewSystem />
+          </div>
         </div>
       </div>
-      <div className="absolute inset-x-0 bottom-0">
+      <div>
         <Footer />
       </div>
     </>
