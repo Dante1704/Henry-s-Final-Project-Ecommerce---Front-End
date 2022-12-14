@@ -39,7 +39,7 @@ export default function Home() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="static">
       <div className="col-span-4">
         <NavBar />
       </div>
@@ -53,10 +53,10 @@ export default function Home() {
         {product.error && <ErrorSearch />}
 
         {currentProduct
-          ? currentProduct.map((element) => {
+          ? currentProduct.map((element, index) => {
               return (
                 <Card
-                  key={element.id}
+                  key={index}
                   id={element.id}
                   title={element.title}
                   price={element.price}
@@ -78,6 +78,6 @@ export default function Home() {
         />
       </Stack>
       <Footer />
-    </>
+    </div>
   );
 }
