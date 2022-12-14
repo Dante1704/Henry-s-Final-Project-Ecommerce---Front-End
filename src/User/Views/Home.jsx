@@ -39,7 +39,7 @@ export default function Home() {
   }, [dispatch]);
 
   return (
-    <div className="static">
+    <>
       <div className="col-span-4">
         <NavBar />
       </div>
@@ -78,6 +78,6 @@ export default function Home() {
         />
       </Stack>
       <Footer />
-    </div>
+    </>
   );
 }
