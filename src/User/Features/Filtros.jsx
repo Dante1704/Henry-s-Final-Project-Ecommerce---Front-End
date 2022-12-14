@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sortByPrice, getByFilters } from "../../Redux/Reducer/allProductSlice";
 
-export const Filtros = ({ /* orden, */ setCurrentPage }) => {
+export const Filtros = ({ setOrden, setCurrentPage }) => {
   const dispatch = useDispatch();
   const products = [...useSelector((state) => state.allProducts.allProducts)];
   const [filters, setFilters] = useState({
@@ -17,8 +17,9 @@ export const Filtros = ({ /* orden, */ setCurrentPage }) => {
       filters.gender !== "" &&
       filters.category !== "" &&
       filters.color !== ""
-    )
+    ) {
       dispatch(getByFilters(filters));
+    }
   }, [dispatch, filters]);
 
   function filterHandler(e) {
@@ -27,18 +28,18 @@ export const Filtros = ({ /* orden, */ setCurrentPage }) => {
     setFilters({ ...filters, [filterName]: filterValue });
     setCurrentPage(1);
     dispatch(getByFilters(filters));
-    //orden(`Ordenado ${e.target.value}`);
+    setOrden(`Ordenado ${e.target.value}`);
   }
   function sortingHandler(e) {
     if (e.target.value === "asc") {
       const sortedProducts = products?.sort((a, b) => a.price - b.price);
       setCurrentPage(1);
       dispatch(sortByPrice(sortedProducts));
-      //  orden(`Ordenado ${e.target.value}`);
+      setOrden(`Ordenado ${e.target.value}`);
     }
     const sortedProducts = products?.sort((a, b) => b.price - a.price);
     dispatch(sortByPrice(sortedProducts));
-    //orden(`Ordenado ${e.target.value}`);
+    setOrden(`Ordenado ${e.target.value}`);
   }
 
   console.log(filters);
