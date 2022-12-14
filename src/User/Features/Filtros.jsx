@@ -12,6 +12,8 @@ export const Filtros = ({ /* orden, */ setCurrentPage }) => {
     color: "",
   });
 
+  console.log(filters);
+
   useEffect(() => {
     if (
       filters.gender !== "" &&
