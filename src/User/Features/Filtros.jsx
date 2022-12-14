@@ -12,6 +12,10 @@ export const Filtros = ({ setOrden, setCurrentPage }) => {
     color: "",
   });
 
+  console.log(filters);
+  console.log(products);
+  console.log("dispatch getByFilters");
+
   function filterHandler(e) {
     const filterName = e.target.name;
     const filterValue = e.target.value;
@@ -33,16 +37,13 @@ export const Filtros = ({ setOrden, setCurrentPage }) => {
   }
 
   useEffect(() => {
-    if (
+    /* if (
       filters.gender !== "" &&
       filters.category !== "" &&
       filters.color !== ""
     ) {
-      console.log(filters);
-      console.log(products);
-      console.log("dispatch getByFilters");
-      dispatch(getByFilters(filters));
-    }
+    } */
+    dispatch(getByFilters(filters));
   }, [dispatch, filters]);
 
   return (
