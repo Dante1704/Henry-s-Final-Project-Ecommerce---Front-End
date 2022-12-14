@@ -39,7 +39,7 @@ export default function Home() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="static">
       <div className="col-span-4">
         <NavBar />
       </div>
@@ -69,20 +69,15 @@ export default function Home() {
             })
           : null}
       </div>
-
-      <div>
-        <Stack spacing={1}>
-          <Paginado
-            productsPerPage={productsPerPage}
-            productPaginado={productPaginado.length}
-            currentPage={currentPage}
-            paginado={paginado}
-          />
-        </Stack>
-      </div>
-      <div>
-        <Footer />
-      </div>
-    </>
+      <Stack spacing={1}>
+        <Paginado
+          productsPerPage={productsPerPage}
+          productPaginado={productPaginado.length}
+          currentPage={currentPage}
+          paginado={paginado}
+        />
+      </Stack>
+      <Footer />
+    </div>
   );
 }
