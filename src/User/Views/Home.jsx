@@ -50,8 +50,6 @@ export default function Home() {
       <Filtros setOrden={setOrden} setCurrentPage={setCurrentPage} />
       <div className="grid grid-cols-3 gap-4 justify-items-center items-center">
         {product.loading && <Loading />}
-        {product.error && <ErrorSearch />}
-
         {currentProduct
           ? currentProduct.map((element) => {
               return (
@@ -69,6 +67,7 @@ export default function Home() {
             })
           : null}
       </div>
+{product.error && <ErrorSearch />}
       <Stack spacing={1}>
         <Paginado
           productsPerPage={productsPerPage}
