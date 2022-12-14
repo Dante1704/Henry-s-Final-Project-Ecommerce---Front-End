@@ -22,7 +22,7 @@ export default function Home() {
   const [productsPerPage, setProductsPerPage] = useState(6);
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const [orden, setOrden] = useState("");
+  //const [orden, setOrden] = useState("");
   const currentProduct = productPaginado.slice(
     indexOfFirstProduct,
     indexOfLastProduct
@@ -47,7 +47,7 @@ export default function Home() {
       <div className="col-span-4 text-center text-slate-700 font-cursive-titles text-5xl mt-2">
         <h1>Products</h1>
       </div>
-      <Filtros orden={orden} setCurrentPage={setCurrentPage} />
+      <Filtros /* orden={orden} */ setCurrentPage={setCurrentPage} />
       <div className="grid grid-cols-3 gap-4 justify-items-center items-center">
         {product.loading && <Loading />}
         {product.error && <ErrorSearch />}
