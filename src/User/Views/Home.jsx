@@ -40,10 +40,7 @@ export default function Home() {
 
   return (
     <div className="static">
-      <div className="col-span-4">
-        <NavBar />
-      </div>
-
+      <NavBar />
       <div className="col-span-4 text-center text-slate-700 font-cursive-titles text-5xl mt-2">
         <h1>Products</h1>
       </div>
