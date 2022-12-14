@@ -39,7 +39,7 @@ export default function Home() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="static">
       <div className="col-span-4">
         <NavBar />
       </div>
@@ -51,10 +51,10 @@ export default function Home() {
       <div className="grid grid-cols-3 gap-4 justify-items-center items-center">
         {product.loading && <Loading />}
         {currentProduct
-          ? currentProduct.map((element) => {
+          ? currentProduct.map((element, index) => {
               return (
                 <Card
-                  key={element.id}
+                  key={index}
                   id={element.id}
                   title={element.title}
                   price={element.price}
@@ -77,6 +77,6 @@ export default function Home() {
       </Stack>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }

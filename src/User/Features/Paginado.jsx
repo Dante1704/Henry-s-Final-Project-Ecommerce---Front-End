@@ -26,7 +26,7 @@ export default function Paginado({
         </li>
         {pageNumbers &&
           pageNumbers.map((number) => (
-            <li className=" ">
+            <li className=" " key={number}>
               <button
                 className="rounded-lg py-5 px-3 hover:bg-blue-100 hover:text-slate-900 text-black-900 font-bold text-xl"
                 onClick={() => paginado(number)}
