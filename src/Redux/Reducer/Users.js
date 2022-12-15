@@ -21,10 +21,8 @@ export const getAllusers = createAsyncThunk(
 export const updateUser = createAsyncThunk(
   "updateUser/updateUser",
   async (id, input) => {
-    console.log(id);
     return axios.put(`${url}/user/update/${id}`, input).then((response) => {
       const respuesta = response;
-      console.log(`put user response => ${respuesta}`);
     });
   }
 );
@@ -39,7 +37,6 @@ export const getByIdUser = createAsyncThunk(
 export const deleteUserId = createAsyncThunk(
   "deleteUserId/deleteUserId",
   async (id) => {
-    console.log(`id para borrar => ${id}`);
     return await axios.put(`${url}/user/delete/${id}`);
   }
 );
@@ -53,7 +50,6 @@ const usersSlice = createSlice({
       state.loading = false;
       state.userId = action.payload;
       state.error = "";
-      console.log("userId", state.userId);
     });
     builder.addCase(getAllusers.pending, (state) => {
       state.loading = true;
