@@ -48,7 +48,6 @@ export default function Home() {
       <div className="grid grid-cols-3 gap-4 justify-items-center items-center">
         {product.loading && <Loading />}
         {product.error && <ErrorSearch />}
-
         {currentProduct
           ? currentProduct.map((element, index) => {
               return (
@@ -72,7 +71,7 @@ export default function Home() {
         currentPage={currentPage}
         paginado={paginado}
       />
-      <Footer />
+   <Footer />
     </div>
   );
 }
