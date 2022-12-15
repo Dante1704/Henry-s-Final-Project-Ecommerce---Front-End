@@ -25,6 +25,7 @@ export default function Profile() {
       title: "Are you sure?",
       text: "Remember to complete all the fields",
       icon: "info",
+
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {

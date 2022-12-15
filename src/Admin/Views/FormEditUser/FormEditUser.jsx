@@ -14,20 +14,21 @@ export const FormEditUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const infoUser = useSelector((state) => state.users.userId);
+  const user = useSelector((state) => state.auth.auth);
   const [image, setImage] = useState(infoUser.profileImage);
   const [loading, setLoading] = useState(false);
   const alert = (e) => {
     if (!formularioEnviado) {
       return swal({
         title: "Are you sure?",
-        text: "product edit",
+        text: "profile edit",
         icon: "success",
         buttons: true,
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          dispatch(getByIdUser());
-          dispatch(getAllusers());
+          dispatch(getByIdUser(user.id));
+          // dispatch(getAllusers());
           swal("ok!", {
             icon: "success",
           });
@@ -79,11 +80,11 @@ export const FormEditUser = () => {
               console.log("objeto en registro", values);
               resetForm();
               setformularioEnviado(true);
-              swal({
-                title: "Excellent!",
-                text: "Remember to verify it! Check your email",
-                icon: "success",
-              });
+              // swal({
+              //   title: "Excellent!",
+              //   text: "Remember to verify it! Check your email",
+              //   icon: "success",
+              // });
               navigate("/profile");
             }}
             validate={(values) => validate(values)}
