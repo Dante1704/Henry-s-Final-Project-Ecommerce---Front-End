@@ -58,7 +58,7 @@ export const Filtros = ({ setOrden, setCurrentPage }) => {
   }, [dispatch, filters]);
 
   return (
-    <div className="col-span-5 mt-5 mb-5">
+    <div className="">
       {/* Aca van los filtros */}
       <div className="flex flex-row justify-around">
         <div>
