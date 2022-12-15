@@ -28,7 +28,7 @@ export default function ProductsAdmin({ color }) {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        dispatch(updateReview(e));
+        dispatch(deleteProId(e));
 
         swal("Poof!The review has disappeared!", {
           icon: "success",
