@@ -29,10 +29,10 @@ export default function NavBar() {
   const admin = auth.isAdmin;
 
   return (
-    <nav className="-full bg-gray-900 flex flex-row justify-between gap-4">
+    <nav className="w-full bg-gray-900 flex flex-row justify-between gap-4 px-2">
       {auth.isAdmin === true ? (
         <>
-          <div>
+          <div className="flex flex-row gap-4">
             <MenuContainer />
             <Link to="/home">
               <HomeIcon
@@ -44,7 +44,10 @@ export default function NavBar() {
           </div>
           <div className="flex flex-row justify-end">
             <ContainerLogIn />
-            <Link to="/cart">
+            <Link
+              to="/cart"
+              className="flex flex-row justify-center items-center"
+            >
               <IconButton aria-label="cart">
                 <StyledBadge badgeContent={cart} color="secondary">
                   <ShoppingCartIcon color="primary" />
@@ -56,7 +59,7 @@ export default function NavBar() {
       ) : (
         <>
           {/* <MenuContainer /> */}
-          <div className="flex flex-row gap-4 mr-5">
+          <div className="flex flex-row gap-4">
             <Link to="/home">
               <HomeIcon
                 sx={{ fontSize: 45 }}
@@ -74,7 +77,7 @@ export default function NavBar() {
               <LoginIcon /> Log In
             </Link>
           </button> */}
-          <div className="flex flex-row justify-end mr-5">
+          <div className="flex flex-row justify-end mr-8">
             <ContainerLogIn />
             <Link to="/cart">
               <IconButton aria-label="cart">
