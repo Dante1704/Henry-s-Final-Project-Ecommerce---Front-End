@@ -41,12 +41,13 @@ export default function Home() {
   return (
     <div className="static">
       <NavBar />
-      <div className="col-span-4 text-center text-slate-700 font-cursive-titles text-5xl mt-2">
+      <div className="col-span-4 text-center text-slate-700 font-cursive-titles text-5xl">
         <h1>Products</h1>
       </div>
       <Filtros setOrden={setOrden} setCurrentPage={setCurrentPage} />
       <div className="grid grid-cols-3 gap-4 justify-items-center items-center">
         {product.loading && <Loading />}
+        {product.error && <ErrorSearch />}
         {currentProduct
           ? currentProduct.map((element, index) => {
               return (
@@ -63,17 +64,14 @@ export default function Home() {
               );
             })
           : null}
-           {product.error && <ErrorSearch />}
-           <Stack spacing={1}>
-        <Paginado
-          productsPerPage={productsPerPage}
-          productPaginado={productPaginado.length}
-          currentPage={currentPage}
-          paginado={paginado}
-        />
-      </Stack>
       </div>
-      <Footer />
+      <Paginado
+        productsPerPage={productsPerPage}
+        productPaginado={productPaginado.length}
+        currentPage={currentPage}
+        paginado={paginado}
+      />
+   <Footer />
     </div>
   );
 }
