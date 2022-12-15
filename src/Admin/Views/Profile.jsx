@@ -23,15 +23,14 @@ export default function Profile() {
   function editBotoAlert(e) {
     swal({
       title: "Are you sure?",
-      text: "Edit profile!",
-      icon: "warning",
+      text: "Remember to complete all the fields",
+      icon: "info",
+
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
         navigate("/formEditUser");
-      } else {
-        swal("Your product is safe!");
       }
     });
   }
@@ -178,7 +177,6 @@ export default function Profile() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }
