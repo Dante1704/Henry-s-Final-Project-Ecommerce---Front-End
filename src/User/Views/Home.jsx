@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <div className="static">
       <NavBar />
-      <div className="col-span-4 text-center text-slate-700 font-cursive-titles text-5xl mt-2">
+      <div className="col-span-4 text-center text-slate-700 font-cursive-titles text-5xl">
         <h1>Products</h1>
       </div>
       <Filtros setOrden={setOrden} setCurrentPage={setCurrentPage} />
