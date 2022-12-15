@@ -23,7 +23,7 @@ export default function Profile() {
   function editBotoAlert(e) {
     swal({
       title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this product!",
+      text: "Edit profile!",
       icon: "warning",
       buttons: true,
       dangerMode: true,

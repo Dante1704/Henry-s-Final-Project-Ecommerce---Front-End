@@ -20,13 +20,13 @@ export const FormEditUser = () => {
     if (!formularioEnviado) {
       return swal({
         title: "Are you sure?",
-        text: "product edit",
+        text: "profile edit",
         icon: "success",
         buttons: true,
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          dispatch(getByIdUser());
+          // dispatch(getByIdUser());
           dispatch(getAllusers());
           swal("ok!", {
             icon: "success",
@@ -79,11 +79,11 @@ export const FormEditUser = () => {
               console.log("objeto en registro", values);
               resetForm();
               setformularioEnviado(true);
-              swal({
-                title: "Excellent!",
-                text: "Remember to verify it! Check your email",
-                icon: "success",
-              });
+              // swal({
+              //   title: "Excellent!",
+              //   text: "Remember to verify it! Check your email",
+              //   icon: "success",
+              // });
               navigate("/profile");
             }}
             validate={(values) => validate(values)}
