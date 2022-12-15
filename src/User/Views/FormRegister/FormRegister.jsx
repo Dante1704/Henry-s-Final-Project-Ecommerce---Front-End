@@ -236,7 +236,7 @@ export const ForrmRegister = () => {
                           class="block mb-2 text-sm font-bold text-gray-700"
                           for="firstName"
                         >
-                          confirmPassword
+                          Confirm Password
                         </label>
                         <input
                           className="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md"
