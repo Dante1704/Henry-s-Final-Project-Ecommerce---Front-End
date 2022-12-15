@@ -37,7 +37,7 @@ export const ForrmRegister = () => {
   };
 
   return (
-    <body class="font-mono bg-gray-400">
+    <body class="font-mono bg-gray-400 h-full">
       <NavBar />
       <div class="container mx-auto">
         <div class="flex justify-center px-6 my-12">
@@ -306,7 +306,6 @@ export const ForrmRegister = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </body>
   );
 };
