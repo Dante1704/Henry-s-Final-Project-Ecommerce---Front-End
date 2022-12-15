@@ -14,6 +14,7 @@ export const FormEditUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const infoUser = useSelector((state) => state.users.userId);
+  const user = useSelector((state) => state.auth.auth);
   const [image, setImage] = useState(infoUser.profileImage);
   const [loading, setLoading] = useState(false);
   const alert = (e) => {
@@ -26,8 +27,8 @@ export const FormEditUser = () => {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          // dispatch(getByIdUser());
-          dispatch(getAllusers());
+          dispatch(getByIdUser(user.id));
+          // dispatch(getAllusers());
           swal("ok!", {
             icon: "success",
           });
