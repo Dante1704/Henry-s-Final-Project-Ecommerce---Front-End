@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import swal from "sweetalert";
 import { updateUser } from "../../../Redux/actions";
-import { getByIdUser } from "../../../Redux/Reducer/Users";
+import { getAllusers, getByIdUser } from "../../../Redux/Reducer/Users";
 import NavBar from "../../../User/Features/NavBar";
 
 export const FormEditUser = () => {
@@ -19,15 +19,21 @@ export const FormEditUser = () => {
   const alert = (e) => {
     if (!formularioEnviado) {
       return swal({
-        title: "Success!",
-        text: "User modified successfuly!",
+        title: "Are you sure?",
+        text: "product edit",
         icon: "success",
-      });
-    } else {
-      return swal({
-        title: "Something went wrong :'(",
-        text: "Try again later!",
-        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          dispatch(getByIdUser());
+          dispatch(getAllusers());
+          swal("ok!", {
+            icon: "success",
+          });
+        } else {
+          swal("Your product is safe!");
+        }
       });
     }
   };

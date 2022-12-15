@@ -26,11 +26,11 @@ export const FormEditProduct = () => {
       }).then((willDelete) => {
         if (willDelete) {
           dispatch(getAllProducts());
-          swal("Poof! Your product has been deleted!", {
+          swal("ok!", {
             icon: "success",
           });
         } else {
-          swal("Your product is safe!");
+          swal("Nice");
         }
       });
     }
