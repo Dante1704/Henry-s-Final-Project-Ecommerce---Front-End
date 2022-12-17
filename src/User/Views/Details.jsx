@@ -62,8 +62,6 @@ export default function Details() {
       quantity > 1 && setQuantity(quantity - 1);
     } else if (type === "inc") {
       quantity < details.details.stock && setQuantity(quantity + 1);
-    } else {
-      setWarning(true);
     }
   };
 

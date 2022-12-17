@@ -23,19 +23,8 @@ export default function Profile() {
   function editBotoAlert(e) {
     swal({
       title: "Are you sure?",
-<<<<<<< HEAD
-<<<<<<< HEAD
       text: "Remember to complete all the fields",
       icon: "info",
-=======
-      text: "Edit profile!",
-      icon: "warning",
->>>>>>> 98eeb838c412f9769af848e7fb058338eedfb241
-=======
-      text: "Remember to complete all the fields",
-      icon: "info",
-
->>>>>>> bff19a04a14f282b85f4ffb9f2f6ac29b83d9c6d
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
